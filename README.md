@@ -76,7 +76,7 @@ Trong 1 chương trình nhưng có nhiều luồng độc lập sử lý song so
 # Anonymous Inner Class 
  Inner Class được khai báo mà không kèm theo tên lớp được gọi là Anonymous Inner Class.
  
- ## Tại sao phải sử dụng nó ?
+## Tại sao phải sử dụng nó ?
  
 ![anonymod class va class](https://cloud.githubusercontent.com/assets/18228937/17830626/1b14bf3a-66fb-11e6-88ef-63299d37bf49.png)
 
