@@ -80,7 +80,7 @@ Trong 1 chương trình nhưng có nhiều luồng độc lập sử lý song so
  
 ![anonymod class va class](https://cloud.githubusercontent.com/assets/18228937/17830626/1b14bf3a-66fb-11e6-88ef-63299d37bf49.png)
 
-* tùy vào mục đích sử dụng mô phỏng trên thì Anonymous Inner Class giúp tối ưu về mặt bộ nhớ .
+* tùy vào mục đích sử dụng Anonymous Inner Class , trong 1 số trường hợp như mô phỏng trên thì Anonymous Inner Class giúp tối ưu về mặt bộ nhớ .
 
 ### inner Class là gì ? 
 là class trong class 
