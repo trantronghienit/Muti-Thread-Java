@@ -89,7 +89,7 @@ Quản lý Nhiều thread khi dùng chung dữ liệu , thread này sử dụng 
 khi có nhiều Thread dùng chung 1 kiểu dữ liệu , khi đó cần đến synchronized để cho đối tượng kia ủng thác và sử lý thread theo trình tự nhất định theo ý.
 
 ## How ?
-![code demo](https://github.com/trantronghienit/Muti-Thread-synchronized-Java/blob/master/DongBoLuong.java)
+[code demo](https://github.com/trantronghienit/Muti-Thread-synchronized-Java/blob/master/DongBoLuong.java)
 ![how synchronized](https://cloud.githubusercontent.com/assets/18228937/17832045/42b83e94-6724-11e6-882c-bd6f3c9c8542.png)
 
  
