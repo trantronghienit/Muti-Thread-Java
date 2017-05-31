@@ -84,6 +84,9 @@ public static void main(String[] args) {
         thread2.start();
 }
 ```
++ Vậy Khi nào cần tạo class thread extends Thread và khi nào class thread implements Runnable
+  + tuy giống nhau nhưng tùy vào mục đích ví dụ như class thread implements Runnable tạo ra dùng để chia sẽ dữ liệu giữa các thread có cùng kiểu (thread) với nhau.
+ 
 ### Một Số lưu ý về thread
 ```
 	// Thread 1
