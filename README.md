@@ -10,7 +10,7 @@ Trong 1 chương trình nhưng có nhiều luồng độc lập sử lý song so
 * Mọi chương trình Java đề có ít nhất là một thread. Nó được tạo khi bạn gọi phương thức static main
 ![mo ph ng thread](https://cloud.githubusercontent.com/assets/18228937/17830219/e0429ac2-66ef-11e6-9e60-fa08d295c876.png)
 
-* ### Còn 1 số cách tạo Thread
+### 1 số cách tạo Thread trực tiếp 
 ```
 // ===============Khai báo Object tường minh================
 		Runnable runable = new Runnable() {
@@ -42,6 +42,75 @@ Trong 1 chương trình nhưng có nhiều luồng độc lập sử lý song so
 		thread1.start();
 	}
 ```
+### Một số cách tạo Thread gián tiếp thông qua class khác
+```
+====================Cách 1================
+MyThread.class
+public class MyThread extends Thread{
+    @Override
+    public void run() {
+        super.run();
+        for (int i = 0; i < 10; i++) {
+            System.out.println(Thread.currentThread().getName() + "i " + i);
+        }
+    }
+}
+====================Cách 2================
+MyThread1.class
+public class MyThread1 implements Runnable{
+    private int Share = 0; 
+    @Override
+    public void run() {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(Thread.currentThread().getName() + "i "+ i);
+            Share++;
+        }        
+    }
+    
+    public int getShare(){
+        return this.Share;
+    }
+}
+==================== sử dụng nó trong main thread =================
+public static void main(String[] args) {
+ 	// cách tạo với Class extends Thread
+	MyThread thread = new MyThread();
+        thread.setName("TT 1");
+        thread.start();
+	
+	// cách tạo với Class implements Runnable
+	Thread thread2 = new Thread(new MyThread1());
+        thread2.setName("TT 3");
+        thread2.start();
+}
+```
+### Một Số lưu ý về thread
+```
+	// Thread 1
+        MyThread thread = new MyThread();
+        thread.setName("I'm Thread 1");
+        thread.start();
+	
+        // thread 2
+        MyThread thread1 = new MyThread();
+        thread1.setName("I'm Thread 2");
+        thread1.start();
+====== Kết quả sau khi run =========
+Lần 1:
+I'm Thread 1 ---> 0
+I'm Thread 2 ---> 0
+I'm Thread 2 ---> 1
+I'm Thread 1 ---> 1
+......
+Lần 2:
+I'm Thread 2 ---> 0     ---> điều đáng nói ở đây là tại sao Thread 1 đc start trước nhưng tại sao lúc thì nó chay trước lúc thì chạy sau
+I'm Thread 1 ---> 1
+I'm Thread 2 ---> 1
+I'm Thread 1 ---> 2
+.....
+```
++ **Vì tại 1 thời điểm tùy vào hệ điều hành mà nó sẽ gọi từng thread khác nhau theo thứ tự khác nhau tùy theo độ ưu tiên.**
++ Main Thread là thread có được khởi chạy đầu tiên khi chương trình khởi chạy
 ### Vòng Đời Của Thread
 ![thread-life-cycle](https://cloud.githubusercontent.com/assets/18228937/17830303/1ed63c2e-66f2-11e6-8fe9-84de88094769.jpg)
 
